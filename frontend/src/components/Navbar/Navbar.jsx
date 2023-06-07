@@ -1,5 +1,5 @@
-import { Box, Flex, Text, Image, HStack, VStack, Input, Button, IconButton, DrawerBody, Drawer, DrawerOverlay, DrawerCloseButton, DrawerContent, DrawerHeader } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Flex, Text, Image, HStack, VStack, Input, Button, IconButton, DrawerBody, Drawer, DrawerOverlay, DrawerCloseButton, DrawerContent, DrawerHeader, useDisclosure } from '@chakra-ui/react'
+import React, { useRef, useState } from 'react'
 import { FcBusinessman } from "react-icons/fc"
 import {AiOutlineShoppingCart} from "react-icons/ai"
 import {GiHamburgerMenu} from "react-icons/gi"
@@ -12,6 +12,12 @@ const isAuth = true;
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef();
+  const [count, setCount] = useState(0);
+  const [search, setSearch] = useState("");
+  const [searchData, setSearchData] = useState([]);
+  const [display,setDisplay] = useState(false)
   return (
     <Box className="nav-container">
       <Flex
@@ -71,11 +77,11 @@ const Navbar = () => {
               focusBorderColor="black"
               // onKeyDown={handleKeyDown}
               placeholder="search for FRESH FASHION!"
-              // value={search}
-              // onChange={(e) => {
-              //   setSearch(e.target.value);
-              //   setDisplay(true)
-              // }}
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setDisplay(true)
+              }}
             />
 
             <Flex
@@ -84,8 +90,8 @@ const Navbar = () => {
               justifyContent={"center"}
               bg={"white"}
               zIndex={500}
-              // display={display ? "block" : "none"}
-              display={"block"}
+              display={display ? "block" : "none"}
+              // display={"block"}
               position={"absolute"}
               top={10}
               w={"100%"}
@@ -98,10 +104,10 @@ const Navbar = () => {
             </Flex>
           </VStack>
           <Button
-            // onClick={() => {
-            //   setDisplay(false)
-            //   navigate(`/search?q=${search}`);
-            // }}
+            onClick={() => {
+              setDisplay(false)
+              navigate(`/search?q=${search}`);
+            }}
             background={"orange.400"}
             color="white"
           >
@@ -175,19 +181,19 @@ const Navbar = () => {
               _hover={{ bg:"transparent"}}
               _active={{ bg:"transparent"}}
               bg="transparent"
-              // ref={btnRef}
+              ref={btnRef}
               textAlign={"center"}
               rightIcon={<GiHamburgerMenu />}
-              // onClick={onOpen}
+              onClick={onOpen}
             >
               Menu
             </Button>
 
             <Drawer
-              // isOpen={isOpen}
-              // placement="right"
-              // onClose={onClose}
-              // finalFocusRef={btnRef}
+              isOpen={isOpen}
+              placement="right"
+              onClose={onClose}
+              finalFocusRef={btnRef}
             >
               <DrawerOverlay />
               <DrawerContent>
@@ -202,14 +208,14 @@ const Navbar = () => {
                     onClick={() => {
                       if (!isAuth) {
                         navigate("/login");
-                        // onClose();
+                        onClose();
                       } else {
                         sessionStorage.removeItem("token");
                         sessionStorage.removeItem("isAuth");
                         sessionStorage.removeItem("name");
                         sessionStorage.removeItem("email");
                         // dispatch({ type: LOGOUT });
-                        // onClose();
+                        onClose();
                       }
                     }}
                   >
@@ -234,7 +240,7 @@ const Navbar = () => {
                       Cart
                     </Button>
 
-                    {/* <p>Loyalty Points</p> */}
+                    <p>Loyalty Points</p>
                   </Box>
                 </VStack>
 
@@ -258,11 +264,11 @@ const Navbar = () => {
             focusBorderColor="black"
             // onKeyDown={handleKeyDown}
             placeholder="search for FRESH FASHION!"
-            // value={search}
-            // onChange={(e) => {
-            //   setSearch(e.target.value);
-            //   setDisplay(true)
-            // }}
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setDisplay(true)
+            }}
           />
 
           <Flex
@@ -270,8 +276,8 @@ const Navbar = () => {
             direction={"column"}
             justifyContent={"center"}
             bg={"white"}
-            // display={display ? "block" : "none"}
-            position={"absolute"}
+            display={display ? "block" : "none"}
+            // position={"absolute"}
             zIndex={500}
             top={10}
             w={""}
@@ -285,8 +291,8 @@ const Navbar = () => {
         </VStack>
         <IconButton
           onClick={() => {
-            // setDisplay(false)
-            // navigate(`/search?q=${search}`);
+            setDisplay(false)
+            navigate(`/search?q=${search}`);
           }}
           background={"orange.400"}
           icon={<GrSearch />}
