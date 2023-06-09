@@ -6,12 +6,8 @@ import {
     Flex,
     Input,
     Button,
-    Grid,
     FormControl,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
-    Toast,
     Textarea,
     Image,
     RadioGroup,
@@ -24,7 +20,7 @@ import {
     PinInputField,
     PinInput,
 } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
     COLUMN,
@@ -33,7 +29,6 @@ import {
     ORANGE,
     RED,
     ROW,
-    START,
 } from "../../constants/typography";
 import { RUPEES_SYMBOL } from "../../constants/constants.js";
 import getFutureDate from "../../scripts/futureDate";
@@ -69,9 +64,10 @@ const Payment = ({ cart, cartTotal, totalSavings, token, email }) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const finalRef = useRef(null);
-    const pub = process.env.REACT_APP_publicKey
-    const ser = process.env.REACT_APP_serviceID
-    const tem = process.env.REACT_APP_templateID
+    const pub = "ex5PJoHhwxEHw6EL5"
+    const ser = "service_cl0ua9a"
+    const tem = "template_8slyovg"
+
 
     const handleOTP = () => {
         if (name === "" || address === "" || pinCode === "" || phone === "") {

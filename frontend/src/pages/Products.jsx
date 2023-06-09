@@ -1,7 +1,6 @@
 import {
     Box,
     Button,
-    filter,
     Heading,
     HStack,
     Image,
@@ -15,8 +14,8 @@ import {
   import React, { useEffect, useState } from "react";
   import { Link, useLocation, useSearchParams } from "react-router-dom";
   import Paginantion from "../Admin/components/Paginantion/Paginantion";
-  import DrawerPro from "../components/ProductsPage/Drawer";
-  import SideBar from "../components/ProductsPage/SideBar";
+  import DrawerPro from "../components/ProductPage/Drawer";
+  import SideBar from "../components/ProductPage/SideBar";
   import { BASE_URL } from "../constants/config";
   import { CONTAINER } from "../constants/constants";
   import { NONE } from "../constants/typography";
@@ -128,7 +127,7 @@ import {
       try {
         setisloading(true);
         let res = await axios.get(
-          `${BASE_URL}/product?category=${catg}&page=${page}&${queryString}`
+          `${BASE_URL}/product?category=${catg}&page=${page}`
         );
         //?gender=female ya kuch bhi filter krna ha too
         setproductlist(res.data.data);
@@ -265,7 +264,7 @@ import {
               w="90%"
               m={"auto"}
             >
-              {productlist.map((el) => (
+              {productlist.map((el)=> (
                 <Stack
                   key={el._id}
                   textAlign="left"

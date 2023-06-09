@@ -3,8 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BASE_URL } from "../../constants/config";
-import { CENTER, FILL_PARENT, ORANGE, R1, R2, R3, X2LARGE } from "../../constants/typography";
-import ExcelToJson from "../components/ExcelToJson/ExcelToJson";
+import {FILL_PARENT, ORANGE, R1, R2, R3, X2LARGE } from "../../constants/typography";
+import ExcelToJson from "../components/ExcelTojson/ExcelTojson";
 
 let schema = {
                     image: "",

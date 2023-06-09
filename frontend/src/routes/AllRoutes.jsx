@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import AdminPage from "../Admin/pages/AdminPage";
-import CartPage from "../components/CartPage/CartPage";
 import Cartscreen from "../components/CartPage/Cartscreen";
-import Payment from "../components/CheckoutPage/Payment";
 import Login from "../components/LoginPage/LoginPage";
 import OTP from "../components/LoginPage/OTP";
 import Signup from "../components/SignupPage/signup";
@@ -13,7 +11,7 @@ import Profile from "../pages/Profile";
 import Restricated404 from "../pages/Restricted404";
 import SearchPage from "../pages/SearchPage";
 import SingleProduct from "../pages/SingleProduct";
-import PrivateRoute from "./PrivateRoute";
+import PrivateRoute from "./PrivateRoutes";
 
 export default function AllRoutes(){
 
