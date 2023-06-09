@@ -19,7 +19,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { CONTAINER } from '../../constants/constants.js';
 import { ORANGE, POINTER, UNDERLINE } from '../../constants/typography';
 import { login } from '../../Redux/auth/auth.actions';
-import { store } from '../../Redux/store';
+import { store } from '../../Redux/store.js';
 import { Loading } from '../Loading';
 
 export default function Login() {
