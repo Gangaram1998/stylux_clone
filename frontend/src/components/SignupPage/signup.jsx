@@ -19,14 +19,14 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { BASE_URL } from '../../constants/config';
 import { useNavigate } from 'react-router-dom';
 import { FcInfo } from 'react-icons/fc'
-import { CONTAINER } from '../../constants/constants';
+import { CONTAINER } from '../../constants/constants.js';
 import { Loading } from '../Loading';
 import { ORANGE, POINTER, UNDERLINE } from '../../constants/typography';
 
 export default function Signup() {
     const [showPassword, setShowPassword] = useState(false);
     const toast = useToast()
-    const [loading,setLoading] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -34,16 +34,16 @@ export default function Signup() {
     const [phone, setPhone] = useState("")
     const navigate = useNavigate()
     const handleSubmit = () => {
-        if (password.length < 8){
+        if (password.length < 8) {
             alert("Please Provide minimum digit password")
 
-        }else if(!email.includes('@')){
+        } else if (!email.includes('@')) {
             alert(" @ missing, Please fill correct emailID")
 
-        }else if (phone.length !== 10){
+        } else if (phone.length !== 10) {
             alert("Phone no. should be 10 digit")
 
-        }else {
+        } else {
             let payload = {
                 name,
                 email,
@@ -60,30 +60,30 @@ export default function Signup() {
             }).then(res => res.json())
                 .then(res => {
 
-                    if(res.status==1){
-                    setLoading(false)
-                    toast({
-                        title: 'Account created.',
-                        description: res.message,
-                        status: 'success',
-                        duration: 3000,
-                        isClosable: true,
-                    })
-                    navigate("/login")
+                    if (res.status == 1) {
+                        setLoading(false)
+                        toast({
+                            title: 'Account created.',
+                            description: res.message,
+                            status: 'success',
+                            duration: 3000,
+                            isClosable: true,
+                        })
+                        navigate("/login")
 
-                    }else{
+                    } else {
 
-                    setLoading(false)
-                    toast({
-                        title: 'Something Went Wrong',
-                        description: res.message,
-                        status: 'error',
-                        duration: 3000,
-                        isClosable: true,
-                    })
+                        setLoading(false)
+                        toast({
+                            title: 'Something Went Wrong',
+                            description: res.message,
+                            status: 'error',
+                            duration: 3000,
+                            isClosable: true,
+                        })
 
                     }
-                    
+
                 })
                 .catch(err => {
                     setLoading(false)
@@ -100,9 +100,9 @@ export default function Signup() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, []);
+    }, []);
 
-    if(loading) return <Loading />
+    if (loading) return <Loading />
 
     return (
         <Flex
@@ -110,10 +110,10 @@ export default function Signup() {
             align={'center'}
             mt={"140px"}
             justify={'center'}
-            >
+        >
             <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
                 <Box
-                border={'1px solid black'}
+                    border={'1px solid black'}
                     // rounded={'lg'}
                     // boxShadow={'lg'}
                     p={5}>
@@ -186,7 +186,7 @@ export default function Signup() {
                         </Stack>
                         <Stack >
                             <Text align={'center'}>
-                                Already have an account? <Link href='/login'  style={{color:ORANGE ,textDecoration:UNDERLINE,cursor:POINTER}}>Login</Link>
+                                Already have an account? <Link href='/login' style={{ color: ORANGE, textDecoration: UNDERLINE, cursor: POINTER }}>Login</Link>
                             </Text>
                         </Stack>
                         <Stack>

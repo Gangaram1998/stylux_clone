@@ -24,15 +24,15 @@ import {
 } from "../../constants/typography";
 import { StatsBox } from "../components/StatsBox.jsx";
 import "./style.css";
-import { KURTIS, PARTY_WEAR, SHIRT } from "../../constants/constants";
+import { KURTIS, PARTY_WEAR, SHIRT } from "../../constants/constants.js";
 
-async function getData(query,endpoint,token){
+async function getData(query, endpoint, token) {
 
   let res = await axios({
-    url:BASE_URL+`/stat/${endpoint}?${qs.stringify(query)}`,
-    method:"get",
-    headers:{
-      Authorization:token
+    url: BASE_URL + `/stat/${endpoint}?${qs.stringify(query)}`,
+    method: "get",
+    headers: {
+      Authorization: token
     }
   })
   return res.data
@@ -42,36 +42,36 @@ async function getData(query,endpoint,token){
 
 
 
-export default function Dashboard({user}) {
+export default function Dashboard({ user }) {
 
-  let {token} = useSelector((state)=>state.authReducer)
-  const [totalOrder,setTotalOrder] = useState(0)
-  const [pendingOrders,setPendingOrders] = useState(0)
-  const [totalEarning,seTotalEarnings] = useState(0)
-  const [totalProduct,setTotalProduct] = useState(0)
-  const [outofstcok,setOutOfStock] = useState(0)
-  const [top,setTop] = useState(0)
-  const [shirt,setShrit] = useState(0)
-  const [kurtis,setKurtis] = useState(0)
-  const [pw,setPw] = useState(0)
+  let { token } = useSelector((state) => state.authReducer)
+  const [totalOrder, setTotalOrder] = useState(0)
+  const [pendingOrders, setPendingOrders] = useState(0)
+  const [totalEarning, seTotalEarnings] = useState(0)
+  const [totalProduct, setTotalProduct] = useState(0)
+  const [outofstcok, setOutOfStock] = useState(0)
+  const [top, setTop] = useState(0)
+  const [shirt, setShrit] = useState(0)
+  const [kurtis, setKurtis] = useState(0)
+  const [pw, setPw] = useState(0)
 
-  
+
   useEffect
-  (() => {
-    window.scrollTo(0, 0);
-  }, []);
+    (() => {
+      window.scrollTo(0, 0);
+    }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
 
-    let myData = async()=>{
+    let myData = async () => {
 
-      let data = await getData({adminId:user.admin,request:"totalorder"},"order",token)
-      
-      if(data.status==1){
+      let data = await getData({ adminId: user.admin, request: "totalorder" }, "order", token)
+
+      if (data.status == 1) {
 
         setTotalOrder(data.count)
 
-      }else{
+      } else {
         return
       }
 
@@ -80,19 +80,19 @@ export default function Dashboard({user}) {
 
     myData()
 
-  },[])
+  }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
 
-    let myData = async()=>{
+    let myData = async () => {
 
-      let data = await getData({adminId:user.admin,status1:"ordered",status2:"dispatched",request:"pendingorder"},"order",token)
-      
-      if(data.status==1){
+      let data = await getData({ adminId: user.admin, status1: "ordered", status2: "dispatched", request: "pendingorder" }, "order", token)
+
+      if (data.status == 1) {
 
         setPendingOrders(data.count)
 
-      }else{
+      } else {
         return
       }
 
@@ -101,20 +101,20 @@ export default function Dashboard({user}) {
 
     myData()
 
-  },[])
+  }, [])
 
-  
-  useEffect(()=>{
 
-    let myData = async()=>{
+  useEffect(() => {
 
-      let data = await getData({adminId:user.admin,request:"totalearning"},"order",token)
-      
-      if(data.status==1){
+    let myData = async () => {
+
+      let data = await getData({ adminId: user.admin, request: "totalearning" }, "order", token)
+
+      if (data.status == 1) {
 
         seTotalEarnings(data.count)
 
-      }else{
+      } else {
         return
       }
 
@@ -123,21 +123,21 @@ export default function Dashboard({user}) {
 
     myData()
 
-  },[])
-  
+  }, [])
 
-  
-  useEffect(()=>{
 
-    let myData = async()=>{
 
-      let data = await getData({adminId:user.admin,request:"totalproduct"},"product",token)
-      
-      if(data.status==1){
+  useEffect(() => {
+
+    let myData = async () => {
+
+      let data = await getData({ adminId: user.admin, request: "totalproduct" }, "product", token)
+
+      if (data.status == 1) {
 
         setTotalProduct(data.count)
 
-      }else{
+      } else {
         return
       }
 
@@ -146,20 +146,20 @@ export default function Dashboard({user}) {
 
     myData()
 
-  },[])
+  }, [])
 
-  
-  useEffect(()=>{
 
-    let myData = async()=>{
+  useEffect(() => {
 
-      let data = await getData({adminId:user.admin,request:"outofstock"},"product",token)
-      
-      if(data.status==1){
+    let myData = async () => {
+
+      let data = await getData({ adminId: user.admin, request: "outofstock" }, "product", token)
+
+      if (data.status == 1) {
 
         setOutOfStock(data.count)
 
-      }else{
+      } else {
         return
       }
 
@@ -168,20 +168,20 @@ export default function Dashboard({user}) {
 
     myData()
 
-  },[])
+  }, [])
 
-  
-  useEffect(()=>{
 
-    let myData = async()=>{
+  useEffect(() => {
 
-      let data = await getData({adminId:user.admin,request:"categorycount",category:SHIRT},"product",token)
-      
-      if(data.status==1){
+    let myData = async () => {
+
+      let data = await getData({ adminId: user.admin, request: "categorycount", category: SHIRT }, "product", token)
+
+      if (data.status == 1) {
 
         setShrit(data.count)
 
-      }else{
+      } else {
         return
       }
 
@@ -190,19 +190,19 @@ export default function Dashboard({user}) {
 
     myData()
 
-  },[])
+  }, [])
 
-  useEffect(()=>{
+  useEffect(() => {
 
-    let myData = async()=>{
+    let myData = async () => {
 
-      let data = await getData({adminId:user.admin,request:"categorycount",category:TOP},"product",token)
-      
-      if(data.status==1){
+      let data = await getData({ adminId: user.admin, request: "categorycount", category: TOP }, "product", token)
+
+      if (data.status == 1) {
 
         setTop(data.count)
 
-      }else{
+      } else {
         return
       }
 
@@ -211,18 +211,18 @@ export default function Dashboard({user}) {
 
     myData()
 
-  },[])
-  useEffect(()=>{
+  }, [])
+  useEffect(() => {
 
-    let myData = async()=>{
+    let myData = async () => {
 
-      let data = await getData({adminId:user.admin,request:"categorycount",category:KURTIS},"product",token)
-      
-      if(data.status==1){
+      let data = await getData({ adminId: user.admin, request: "categorycount", category: KURTIS }, "product", token)
+
+      if (data.status == 1) {
 
         setKurtis(data.count)
 
-      }else{
+      } else {
         return
       }
 
@@ -231,18 +231,18 @@ export default function Dashboard({user}) {
 
     myData()
 
-  },[])
-  useEffect(()=>{
+  }, [])
+  useEffect(() => {
 
-    let myData = async()=>{
+    let myData = async () => {
 
-      let data = await getData({adminId:user.admin,request:"categorycount",category:PARTY_WEAR},"product",token)
-      
-      if(data.status==1){
+      let data = await getData({ adminId: user.admin, request: "categorycount", category: PARTY_WEAR }, "product", token)
+
+      if (data.status == 1) {
 
         setPw(data.count)
 
-      }else{
+      } else {
         return
       }
 
@@ -251,9 +251,9 @@ export default function Dashboard({user}) {
 
     myData()
 
-  },[])
-  
-  
+  }, [])
+
+
 
 
   return (
