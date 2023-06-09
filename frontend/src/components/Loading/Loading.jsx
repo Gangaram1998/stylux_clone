@@ -1,6 +1,6 @@
 import { Grid } from "@chakra-ui/react";
 import { ABSOLUTE, CENTER, FILL_PARENT, FIXED, WHITE } from "../../constants/typography";
-import Lottie from "react-lottie";
+// import Lottie from "react-lottie";
 
 export default function Loading() {
   function config(url) {
@@ -21,13 +21,13 @@ export default function Loading() {
       w={FILL_PARENT}
       h={"100vh"}
     >
-      <Lottie
+      {/* <Lottie
         options={config(
           "https://assets3.lottiefiles.com/packages/lf20_kxsd2ytq.json"
         )}
         height={300}
         width={300}
-      />
+      /> */}
     </Grid>
   );
 }

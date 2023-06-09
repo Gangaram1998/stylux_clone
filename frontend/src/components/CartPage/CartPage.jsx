@@ -10,24 +10,9 @@ import "./CartPage.css"
 const CartPage = ({ image,
     _id,
     title,
-    description,
     price,
-    originalPrice,
-    sizes,
     setRefresh,
-    category,
-    style,
-    color,
-    material,
-    fit,
-    occasion,
-    sleeves,
-    neck,
-    brand,
-    gender,
-    delivery,
-    tags,
-    stock, quantity, user, adminId }) => {
+    quantity}) => {
 
     const [qty, setQty] = useState(quantity)
     const { token } = useSelector((state) => state.authReducer)

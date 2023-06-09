@@ -7,10 +7,16 @@ const { authenticator } = require("../middlewares/authenticator");
 const productRouter = express.Router();
 
 productRouter.get("/", async (req, res) => {
-    const page = req.query.page||0
+    const {page, category,color,material,occation,brand} = req.query
+    const queries={}
+    if(category) queries.category=category
+    if(color) queries.color=color
+    if(material) queries.material=material
+    if(occation) queries.occation=occation
+    if(brand) queries.brand=brand
   try {
-    let count = await ProductModel.find(req.query).countDocuments();
-    let data = await ProductModel.find(req.query).skip(page*10).limit(10);
+    let count = await ProductModel.find(queries).countDocuments();
+    let data = await ProductModel.find(queries).skip(page*10).limit(10);
     res.send({
       message: "All products data",
       count:count,
