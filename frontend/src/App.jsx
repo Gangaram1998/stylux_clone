@@ -1,13 +1,12 @@
 import './App.css';
-import { Footer } from './components/Footer';
 import Navbar from './components/Navbar/Navbar';
-import SlideShow from './components/SlideShow';
+import AllRoutes from './routes/AllRoutes';
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
-      <SlideShow/>
+      <AllRoutes/>
     </div>
   );
 }
