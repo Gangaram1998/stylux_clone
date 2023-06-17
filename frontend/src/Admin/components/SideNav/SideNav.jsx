@@ -1,6 +1,5 @@
-import { Badge, Box, Button, Card, CardBody, Flex, Heading, Text, VStack } from "@chakra-ui/react";
-import { CONTAINER } from "../../../constants/constants.js";
-import { AUTO, BLACK, BLANCHEDALMOND, BLUEVIOLET, CENTER, FILL_25PARENT, FILL_75PARENT, FILL_90PARENT, FILL_PARENT, FIXED, GREEN, LARGE, MAGENTA, MAROON, MEDIUM, NONE, ORANGE, PINK, PURPLE, RIGHT, STICKY, WHITE } from "../../../constants/typography";
+import { Badge,  Button,  Flex, Heading,  VStack } from "@chakra-ui/react";
+import { AUTO,  CENTER, FILL_25PARENT, FILL_90PARENT, FILL_PARENT,  GREEN,  MEDIUM, NONE, ORANGE, WHITE } from "../../../constants/typography";
 import { CardAvatar } from "../../components/Avatar";
 import "../../pages/style.css"
 export default function SideNav({ setTab, tab, name, role }) {

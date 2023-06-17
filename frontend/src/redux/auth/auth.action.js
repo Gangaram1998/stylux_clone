@@ -24,10 +24,10 @@ export const login = (userData) => async (dispatch) => {
     if(res.data.status==1){
       dispatch(loginSuccessAction({token:res.data.token,name:res.data.name,email:res.data.email}));
       console.log(res.data)
-      return { "status": res.data.status, "msg": res.data.message };
+      return { status:1};
     }else{
       dispatch(loginFailureAction());
-      return { "status": res.data.status, "msg": res.data.message };
+      return {status:0};
 
     }
   

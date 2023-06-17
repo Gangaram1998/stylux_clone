@@ -9,9 +9,7 @@ import {
   CYAN,
   FILL_PARENT,
   GREEN,
-  LARGE,
   LEFT,
-  ORCHID,
   R1,
   R2,
   R3,
@@ -19,8 +17,7 @@ import {
   TOP,
   WHITE,
   X2LARGE,
-  YELLOW,
-  YELLOWGREEN,
+  YELLOW
 } from "../../constants/typography";
 import { StatsBox } from "../components/StatsBox.jsx";
 import "./style.css";
@@ -62,7 +59,6 @@ export default function Dashboard({ user }) {
     }, []);
 
   useEffect(() => {
-
     let myData = async () => {
 
       let data = await getData({ adminId: user.admin, request: "totalorder" }, "order", token)
@@ -107,6 +103,7 @@ export default function Dashboard({ user }) {
   useEffect(() => {
 
     let myData = async () => {
+
 
       let data = await getData({ adminId: user.admin, request: "totalearning" }, "order", token)
 

@@ -233,7 +233,7 @@ import {
                   }
                 }}
               >
-                Cart({count})
+                Cart
               </Text>
   
               <p>Loyalty Points</p>

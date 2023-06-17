@@ -13,6 +13,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "dotenv": "^16.1.4",
+    "emailjs-com": "^3.2.0",
     "file-saver": "^2.0.5",
     "framer-motion": "^10.12.16",
     "otp-generator": "^4.0.1",
