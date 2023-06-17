@@ -31,6 +31,7 @@ import {
     const [page, setPage] = useState(0);
     const [totalPage, setTotalPage] = useState(0);
     let [query,setQuery]= useState("");
+    
   
   let [searchParam,setSearchParam] = useSearchParams()
   
@@ -127,7 +128,7 @@ import {
       try {
         setisloading(true);
         let res = await axios.get(
-          `${BASE_URL}/product?category=${catg}&page=${page}`
+          `${BASE_URL}/product?category=${catg}&page=${page}&${queryString}`
         );
         //?gender=female ya kuch bhi filter krna ha too
         setproductlist(res.data.data);

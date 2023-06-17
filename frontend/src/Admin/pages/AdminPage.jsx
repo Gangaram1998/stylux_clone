@@ -43,6 +43,7 @@ export default function AdminPage() {
     const nav = useNavigate()
     const [user, setUser] = useState({ status: false })
 
+
     const setTabNumber = (number) => {
         setTab(number)
 
@@ -145,7 +146,7 @@ export default function AdminPage() {
                         }
 
                         case 5: {
-                            return user.role == SUPER_ADMIN ? <ManageAdmins /> : <AdminRestrict />
+                            return user.role == SUPER_ADMIN ? <ManageAdmins  /> : <AdminRestrict />
                         }
 
 

@@ -91,7 +91,8 @@ import {
         url:BASE_URL+`/cart`,
         data:cartItem,
         headers:{
-          Authorization:token
+          Authorization:token,
+          "content-type": 'application/json'
         }
       })
   

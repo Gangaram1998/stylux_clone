@@ -18,14 +18,14 @@ import {
   export const reducer = (state = initalState, { type, payload }) => {
     switch (type) {
       case USER_LOGIN_REQUEST:
-        return { ...state, isLoading: true };
+        return { ...state, isLoading: true,isError:false };
       case USER_LOGIN_SUCCESS:
         // console.log(payload)
         sessionStorage.setItem("token", payload.token);
         sessionStorage.setItem("isAuth", true);
         sessionStorage.setItem("email", payload.email);
         sessionStorage.setItem("name", payload.name);
-        return { ...state, isLoading: false, isAuth: true, token: payload.token,name:payload.name,email:payload.email };
+        return { ...state, isLoading: false,isError:false, isAuth: true, token: payload.token,name:payload.name,email:payload.email };
       case USER_LOGIN_FAILURE:
         return { ...state, isLoading: false, isError: true, isAuth: false };
       case LOGOUT: {

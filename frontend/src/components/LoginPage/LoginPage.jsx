@@ -61,12 +61,12 @@ export default function Login() {
             password
         }
 
-        dispatch(login(userData)).then(({ status, msg }) => {
+        dispatch(login(userData)).then((res) => {
 
             {
-                status == 1 ? toast({
+                res.status == 1 ? toast({
                     title: 'Login Successful.',
-                    description: msg,
+                    description: res.msg,
                     status: 'success',
                     duration: 9000,
                     isClosable: true,
@@ -74,14 +74,14 @@ export default function Login() {
                     :
                     toast({
                         title: 'Error.',
-                        description: msg,
+                        description: res.msg,
                         status: 'error',
                         duration: 9000,
                         isClosable: true,
                     })
             }
 
-            if (status == 1) {
+            if (res.status == 1) {
                 location.state ? navigate(location.state) : navigate("/")
 
             }
