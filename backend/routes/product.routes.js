@@ -8,6 +8,7 @@ const productRouter = express.Router();
 
 productRouter.get("/", async (req, res) => {
     const {page, category,color,material,occation,brand} = req.query
+    const skip=(page-1)*10
     const queries={}
     if(category) queries.category=category
     if(color) queries.color=color
