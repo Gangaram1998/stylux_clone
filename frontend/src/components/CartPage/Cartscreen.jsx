@@ -38,7 +38,7 @@ import {
 } from "@chakra-ui/react";
 import Payment from "../CheckoutPage/Payment";
 import { Link } from "react-router-dom";
-import { CART_UPDATE } from "../../Redux/cart/cart.types";
+import { CART_UPDATE } from "../../redux/cart/cart.types";
 const Cartscreen = () => {
     const { token, email } = useSelector((state) => state.authReducer);
     const [cart, setCart] = useState([]);

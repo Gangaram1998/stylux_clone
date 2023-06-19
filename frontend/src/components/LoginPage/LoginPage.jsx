@@ -17,7 +17,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ORANGE, POINTER, UNDERLINE } from '../../constants/typography';
-import { login } from '../../Redux/auth/auth.action';
+import { login } from '../../redux/auth/auth.action';
 import { Loading } from '../Loading';
 
 export default function Login() {

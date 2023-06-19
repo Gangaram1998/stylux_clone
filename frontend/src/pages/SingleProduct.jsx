@@ -20,7 +20,7 @@ import {
   import { BASE_URL } from "../constants/config";
   import { CONTAINER } from "../constants/constants";
   import { AUTO, CENTER, FILL_PARENT, R1, R3 } from "../constants/typography";
-  import { CART_UPDATE } from "../Redux/cart/cart.types";
+  import { CART_UPDATE } from "../redux/cart/cart.types";
   
   const SingleProduct = () => {
     const {token,isAuth} = useSelector((state)=>state.authReducer)

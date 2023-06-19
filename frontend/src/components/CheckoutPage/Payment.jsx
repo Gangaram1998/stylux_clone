@@ -40,7 +40,7 @@ import getFutureDate from "../../scripts/futureDate";
 import axios from "axios";
 import { BASE_URL } from "../../constants/config";
 import { Loading } from "../Loading";
-import { CART_UPDATE } from "../../Redux/cart/cart.types";
+import { CART_UPDATE } from "../../redux/cart/cart.types";
 import {
     Modal,
     ModalOverlay,

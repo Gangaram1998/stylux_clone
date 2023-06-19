@@ -18,7 +18,7 @@ import {
   import { BASE_URL } from '../constants/config';
   import { CONTAINER } from '../constants/constants';
   import { AUTO, CENTER, COLUMN, FILL_30PARENT, FILL_70PARENT, FILL_90PARENT, FILL_PARENT, LARGE, ORANGE, RELATIVE, ROW, START, STICKY, TOP, X2LARGE, YELLOW } from '../constants/typography';
-  import { LOGOUT } from '../Redux/auth/auth.type';
+  import { LOGOUT } from '../redux/auth/auth.type';
   import {Loading}  from "../components/Loading"
   import Paginantion from "../Admin/components/Paginantion/Paginantion";
   
