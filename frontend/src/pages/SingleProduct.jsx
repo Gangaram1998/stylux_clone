@@ -53,32 +53,35 @@ import {
     }, []);
   
     useEffect(()=>{
-      const getStatus=async()=>{
-        let res =await axios({
-          method :"get",
-          url:BASE_URL+`/cart/${id}`,
-          headers:{
-            Authorization:token
+      if(token){
+        const getStatus=async()=>{
+          let res =await axios({
+            method :"get",
+            url:BASE_URL+`/cart/${id}`,
+            headers:{
+              Authorization:token
+            }
+          })
+    
+    
+    
+          if(res.data.status==1){
+            setPresent(true)
+    
+          }else{
+            setPresent(false)
           }
-        })
-  
-  
-  
-        if(res.data.status==1){
-          setPresent(true)
-  
-        }else{
         }
+        getStatus()
       }
-      getStatus()
-  
-  
-  
+      else{
+        setPresent(false)
+      }
     },[])
   
     useEffect(() => {
       getmydata(id);
-    }, [id]);
+    }, []);
   
   
   
